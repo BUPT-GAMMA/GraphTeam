@@ -1,0 +1,6 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to answer when two nodes are linked in the dynamic graph.\nGive the answer as a python list at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(0, 4, 4)]. When are node 4 and node 0 linked?\n",
+    "answer": [
+        4
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "chain": [{
+            "phase": "DemandAnalysis",
+            "model": "Default"  
+        },
+        {
+            "phase": "Search",
+            "model": "Default"
+        },
+        {
+            "phase": "Coding",
+            "model": "Default"
+        },
+        {
+            "phase": "Execution",
+            "max_retry": 3,
+            "model": "Default"
+        },
+        {
+            "phase": "Reasoning",
+            "model": "Default"
+        },
+        {
+            "phase": "Correction",
+            "model": "Default",
+            "max_retry": 3
+        }
+    ],
+    "recruitments": [
+        "Requirement Analyst",
+        "Research Assistant",
+        "Graph Learning Specialist",
+        "Code Reviewer",
+        "Graph Learning Expert",
+        "Output Format Specialist"
+    ],
+    "web_spider": "False",
+    "self_improve": "False",
+    "with_memory": "False"
+}

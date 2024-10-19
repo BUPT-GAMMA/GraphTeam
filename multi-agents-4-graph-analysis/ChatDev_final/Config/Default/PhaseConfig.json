@@ -1,0 +1,67 @@
+{
+  "DemandAnalysis": {
+    "assistant_role_name": "Requirement Analyst",
+    "phase_prompt": [
+      "Here is the task: {task}.",
+      "As the {assistant_role}, you need to extract key information from the task, specifically focusing on the following elements:",
+      "Graph_Type(str): This refers to the type of graph mentioned in the task, such as directed, undirected, weighted, dynamic, etc. If the task does not specify a graph type, it should be set to undirected.",
+      "Input(str): This refers to the graph data or graph file required by the task. You must extract **all relevant information** about the graph data, including but not limited to graph representation (adjacency list, adjacency matrix, edge list, etc.), node and edge details, and any other relevant information.",
+      "Problem(str): This is the specific problem that needs to be solved.",
+      "Output_Format(str): This is the format of the output answer mentioned in the task. If the task does not specify a format, it should be set to None.",
+      "Note that we must ONLY discuss these key elements and do not discuss anything else! Please provide the extracted information in JSON format. Your answer must be in JSON format."
+  ]
+  },
+  "Search": {
+    "assistant_role_name": "Research Assistant",
+    "phase_prompt": [
+        "You are tasked as a {assistant_role} to retrieve relevant information for the task: {query}.",
+        "Use the available knowledge base and memory to find the most accurate and relevant information related to the task.",
+        "If the query is too ambiguous, try to clarify it using previous context.",
+        "Please provide the results in a structured format."
+    ]
+  },
+  "Coding": {
+    "assistant_role_name": "Graph Learning Specialist",
+    "phase_prompt": [
+        "Based on the available search result: {search_result}, your goal is to write Python code that solves the specified graph learning problem using libraries like NetworkX.",
+        "If there is no search result, generate the code based on your expertise.",
+        "ATTENTION: This is the actual problem that needs to be solved, based on the provided information. Please disregard the example above while solving this real task.\n Graph_Type: {Graph_Type} \n Input: {input}, \n Problem: {problem}, \n Output Format: {output_format}.",
+        "The output code must adhere to the following format: '```python\ncode\n```' to ensure easy extraction."
+    ]
+  },
+  "Execution": {
+    "assistant_role_name": "Code Reviewer",
+    "phase_prompt": [
+        "The code execution failed. Please analyze the error message and the code provided to identify the issuescausing the failure in code execution. Based on your analysis, revise the code and provide a corrected version that should execute successfully.",
+        "Here is the error message: {error_message}",
+        "The revised code must be formatted as follows for easy extraction: '```python\ncode\n```'"
+    ]
+  },
+  "Reasoning": {
+    "assistant_role_name": "Graph Learning Expert",
+    "phase_prompt": [
+        "As a {assistant_role}, your task is to analyze and solve a graph-related problem.",
+        "Despite any challenges that previous attempts may have encountered, your goal is to derive a solution leveraging your expertise in graph theory and machine learning.",
+        "Here is the task based on the extracted information: Input: {input}, Problem: {problem}, Output Format: {output_format}.",
+        "Provide a clear, concise answer and present your solution in the following format for easy extraction: '###output:\nsolution'."
+    ]
+  },
+  "Correction": {
+    "assistant_role_name": "Output Format Specialist",
+    "phase_prompt": [
+      "As a {assistant_role}, your role is to ensure that the generated output strictly adheres to the specified format requirements.",
+      "You will be provided with both the required output format (example format) and the actual output. Your task is to compare the two and determine if the actual output matches the format requirements. If the output does not meet the format, you must adjust the format accordingly while **preserving every part of the original content, meaning, and intent without deleting or changing any sections**.",
+      "Important: The required format provided is an **example** that illustrates the expected structure, not the actual content or final answer. Do **not** alter the original meaning, sections, sentences, or intent of the actual output. Your task is only to adjust the format if necessary.",
+      "When adjusting the format, ensure that **no parts are removed, shortened, or reworded in a way that changes the original meaning or omits content**. The adjustment should focus on structural changes such as spacing, indentation, or organization.",
+      "Once the adjustment is made, compare the adjusted output with the original to validate that **all sections, sentences, and words are fully preserved** in the final output.",
+      "Here are the provided details:",
+      "- **Required format (example)**: {output_format}",
+      "- **Actual output** (content to be reviewed): {output}",
+      "Carefully review both and ensure that the actual output conforms to the structure of the example format, while **maintaining the original content, meaning, sections, and intent**.",
+      "Note: Only adjust the **format** if necessary. Do **not** change the actual content, meaning, or intent of the output. If the format is already correct, no adjustment is needed.",
+      "Your response should be in JSON format with:",
+      "- **need_adjustment** (True/False): Indicating whether an adjustment is required.",
+      "- **output** (str): If no adjustment is needed, this should match the original output exactly. If an adjustment is needed, this should contain the adjusted output, with only format changes applied, without altering the content, meaning, sections, or intent."
+    ]
+  }
+}

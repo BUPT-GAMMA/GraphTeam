@@ -1,0 +1,4 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to answer whether a path is chronological in the dynamic graph. The time of the edges in a chronological path from source node to target node must not decrease, e.g., [2, 3, 5] is a chronological path in the dynamic graph [(2, 3, 0), (3, 5, 1)]\nGive the answer as a python list at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(1, 2, 0), (0, 3, 2), (0, 2, 3)]. Find a chronological path starting at node 2 with a length no less that 3. \n",
+    "answer": []
+}

@@ -1,0 +1,28 @@
+{
+    "t": "gen",
+    "task": "when_link",
+    "log_dir": "/home/lixin/home/chuqizhi/LLM4DyG/logs_n=20/example",
+    "num_seed": 100,
+    "k": 1,
+    "T": [
+        5
+    ],
+    "N": [
+        20
+    ],
+    "p": [
+        0.3
+    ],
+    "model": "gpt-4o-mini",
+    "temperature": 0,
+    "max_tokens": 2048,
+    "add_cot": false,
+    "add_role": false,
+    "dyg_type": 1,
+    "edge_type": 0,
+    "imp": 0,
+    "short": 0,
+    "start_token": 900000,
+    "num_examplars": 1,
+    "task_folder": "/home/lixin/home/chuqizhi/LLM4DyG/logs_n=20/example/run_tasks/when_link"
+}

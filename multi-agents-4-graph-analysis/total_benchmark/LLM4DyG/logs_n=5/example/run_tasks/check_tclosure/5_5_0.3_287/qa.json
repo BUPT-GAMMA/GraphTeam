@@ -1,0 +1,1 @@
+{"context": [[1, 4, 2], [3, 4, 2], [0, 3, 3], [0, 4, 3]], "query": [0, 2, 3], "answer": "no", "task": "check_tclosure"}

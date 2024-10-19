@@ -1,0 +1,6 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to answer what nodes are linked with one node only after some time in the dynamic graph.\nGive the answer as a python list at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(1, 2, 2), (2, 3, 4)]. What nodes are linked with node 3 after or at time 4 but not linked before time 4?\n",
+    "answer": [
+        2
+    ]
+}

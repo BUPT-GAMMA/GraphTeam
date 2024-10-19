@@ -1,0 +1,4 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to sort the edges in the dynamic graph by time from earlest to latest.\nGive the answer as a python list at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(4, 5, 2), (1, 2, 3), (5, 6, 2), (1, 3, 0), (2, 3, 3), (0, 7, 0), (3, 7, 1), (2, 7, 0), (6, 8, 2), (0, 9, 0)]. Sort the edges in the dynamic graph by time from earliest to latest. \n",
+    "answer": []
+}

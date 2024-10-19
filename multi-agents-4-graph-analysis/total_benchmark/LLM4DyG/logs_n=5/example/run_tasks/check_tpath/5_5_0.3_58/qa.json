@@ -1,0 +1,1 @@
+{"context": [[1, 2, 0], [2, 3, 1], [0, 2, 3]], "query": [3, 0, 1], "answer": "no", "task": "check_tpath"}

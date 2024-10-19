@@ -1,0 +1,1 @@
+{"edge_index": [[0, 1, 0], [0, 4, 0], [2, 4, 0], [0, 3, 4]], "num_nodes": 5, "num_edges": 4, "num_time": 2, "T": 5, "N": 5, "p": 0.3, "directed": false, "seed": 176}

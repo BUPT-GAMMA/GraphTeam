@@ -1,0 +1,762 @@
+[
+    {
+        "id": 0,
+        "problem": "train a 5-layer GAT model with specified parameters and predict the accuracy",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 1,
+        "problem": "train a 2-layer GCN model with hidden dimensions [8, 16] and dropout 0.1, and predict the accuracy",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 2,
+        "problem": "Determine whether or not there is a cycle in an undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 3,
+        "problem": "Determine whether or not there is a cycle in an undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 4,
+        "problem": "Find the maximum sum of the weights of three interconnected nodes.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 5,
+        "problem": "Find the maximum sum of the weights of three interconnected nodes.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 6,
+        "problem": "Determine whether node 56 and node 9 are connected in the undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 7,
+        "problem": "Determine whether node 56 and node 9 are connected in the undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 8,
+        "problem": "Determine whether or not there is a Hamiltonian path in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 9,
+        "problem": "Determine whether or not there is a Hamiltonian path in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 10,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 11,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 12,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 13,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 14,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 15,
+        "problem": "Find the shortest path between node 0 and node 15 in the given undirected graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 16,
+        "problem": "Determine if subgraph G' is present as an exact match within graph G.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 17,
+        "problem": "Determine if subgraph G' is present as an exact match within graph G.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 18,
+        "problem": "Determine if subgraph G' is present as an exact match within graph G.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 19,
+        "problem": "Find the maximum flow between node 3 and node 5 in the directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 20,
+        "problem": "Find the maximum flow between node 0 and node 7 in a directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 21,
+        "problem": "Find the maximum flow between node 0 and node 7 in a directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 22,
+        "problem": "Find the maximum flow between node 15 and node 40 in the directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 23,
+        "problem": "Find the maximum flow between node 15 and node 40 in the directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 24,
+        "problem": "Determine whether the given directed graph is bipartite.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 25,
+        "problem": "Determine whether the given directed graph is bipartite.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 26,
+        "problem": "Find one of the topology sorting paths of the given directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 27,
+        "problem": "Determine when the three nodes [0, 19, 18] first close the triad.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 28,
+        "problem": "Determine when the three nodes [2, 6, 15] first close the triad.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 29,
+        "problem": "Identify nodes linked with node 19 after or at time 3 but not linked before time 3.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 30,
+        "problem": "Identify nodes linked with node 15 after or at time 1 but not linked before time 1.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 31,
+        "problem": "What nodes are linked with node 19 at time 4?",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 32,
+        "problem": "What nodes are linked with node 15 at time 2?",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 33,
+        "problem": "Determine if the nodes [13, 5, 9] form a closed triad.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 34,
+        "problem": "Determine if the three nodes [5, 2, 16] form a closed triad.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 35,
+        "problem": "Determine if the path [16, 4, 13] is chronological in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 36,
+        "problem": "Determine if the path [23, 20, 10] is chronological in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 37,
+        "problem": "Determine when node 21 and node 22 are first connected in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 38,
+        "problem": "Determine when nodes 11 and 16 are first connected in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 39,
+        "problem": "Determine when node 5 and node 13 are linked in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 40,
+        "problem": "Determine when node 22 and node 3 are linked in the dynamic graph.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 41,
+        "problem": "Find a chronological path starting at node 7 with a length no less than 3.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 42,
+        "problem": "Find a chronological path starting at node 7 with a length no less than 3.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 43,
+        "problem": "Sort the edges in the dynamic graph by time from earliest to latest.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 44,
+        "problem": "Sort the edges in the dynamic graph by time from earliest to latest.",
+        "graph_type": "undirected dynamic"
+    },
+    {
+        "id": 45,
+        "problem": "Determine if there is a path between node 13 and node 5.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 46,
+        "problem": "Determine if there is a path between node 17 and node 10.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 47,
+        "problem": "Calculate the maximum flow from node 2 to node 6",
+        "graph_type": "directed"
+    },
+    {
+        "id": 48,
+        "problem": "What is the maximum flow from node 6 to node 4?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 49,
+        "problem": "Is there a cycle in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 50,
+        "problem": "Is there a cycle in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 51,
+        "problem": "Calculate the embedding of each node after two layers of simple graph convolution layer.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 52,
+        "problem": "Calculate the updated embedding of each node after two layers of simple graph convolution.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 53,
+        "problem": "Find the shortest path from node 4 to node 5.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 54,
+        "problem": "Find the shortest path from node 0 to node 7.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 55,
+        "problem": "Find an assignment of jobs to applicants such that the maximum number of applicants find the job they are interested in.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 56,
+        "problem": "Find an assignment of jobs to applicants in such that the maximum number of applicants find the job they are interested in.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 57,
+        "problem": "Is there a path in this graph that visits every node exactly once? If yes, give the path.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 58,
+        "problem": "Is there a path in this graph that visits every node exactly once?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 59,
+        "problem": "Is there a path in this graph that visits every node exactly once?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 60,
+        "problem": "Determine if all nodes can be visited based on the given constraints.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 61,
+        "problem": "Determine if all nodes can be visited based on the given constraints.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 62,
+        "problem": "List all the nodes connected to 4 in alphabetical order.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 63,
+        "problem": "List all the nodes connected to 1 in alphabetical order.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 64,
+        "problem": "What is the degree of node 10?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 65,
+        "problem": "What is the degree of node 4?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 66,
+        "problem": "How many nodes are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 67,
+        "problem": "How many nodes are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 68,
+        "problem": "How many edges are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 69,
+        "problem": "How many edges are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 70,
+        "problem": "Is node 16 has an edge to node 9?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 71,
+        "problem": "Is node 0 has an edge to node 3?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 72,
+        "problem": "How many triangles are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 73,
+        "problem": "How many triangles are in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 74,
+        "problem": "Is there a path from node 6 to node 0?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 75,
+        "problem": "Is there a path from node 8 to node 0?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 76,
+        "problem": "Is there a cycle in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 77,
+        "problem": "Is there a cycle in this graph?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 78,
+        "problem": "Determine if node 5 likes golf or soccer.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 79,
+        "problem": "Determine if node 9 likes golf or soccer.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 80,
+        "problem": "What is the length of the shortest path from node 14 to node 2?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 81,
+        "problem": "Find the length of the shortest path from node 10 to node 8.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 82,
+        "problem": "List all the nodes that are not connected to 4 in alphabetical order.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 83,
+        "problem": "List all the nodes that do not have an edge to node 4 in alphabetical order.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 84,
+        "problem": "Output the topological sorting of this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 85,
+        "problem": "Output the topological sorting of this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 86,
+        "problem": "Calculate the Jaccard coefficient of node <11> and node <7>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 87,
+        "problem": "Calculate the Jaccard coefficient of node <5> and node <9>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 88,
+        "problem": "Calculate the Jaccard coefficient of node <9> and node <0>. For a directed graph, we consider a node's successors as its neighbors.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 89,
+        "problem": "Calculate the Jaccard coefficient of node <15> and node <8>. For a directed graph, we consider a node's successors as its neighbors.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 90,
+        "problem": "Is there a directed edge from node <13> to node <11>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 91,
+        "problem": "Is there a directed edge from node <4> to node <17>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 92,
+        "problem": "Is there an edge between node <5> and node <1>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 93,
+        "problem": "Is there an edge between node <17> and node <3>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 94,
+        "problem": "Calculate the diameter of the graph. The diameter is the maximum distance over all pairs of nodes in the graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 95,
+        "problem": "Calculate the diameter of the graph. The diameter is the maximum distance over all pairs of nodes in the graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 96,
+        "problem": "Identify the neighbor nodes of node <5> in the directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 97,
+        "problem": "Identify the neighbor nodes of node <11> in the directed graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 98,
+        "problem": "Identify the neighbor nodes of node <4>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 99,
+        "problem": "Identify the neighbor nodes of node <5>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 100,
+        "problem": "Calculate the maximum flow between node <15> and node <8> in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 101,
+        "problem": "Calculate the maximum flow between node <12> and node <6> in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 102,
+        "problem": "Find the connected component containing node <9>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 103,
+        "problem": "Find the connected component containing node <9>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 104,
+        "problem": "Find the strongly connected component containing node <12>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 105,
+        "problem": "Find the strongly connected component containing node <15>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 106,
+        "problem": "Is there a path between node <18> and node <10>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 107,
+        "problem": "Is there a path between node <4> and node <14>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 108,
+        "problem": "Is there a directed path from node <8> to node <17>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 109,
+        "problem": "Is there a directed path from node <11> to node <15>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 110,
+        "problem": "Calculate the number of common neighbors of node <9> and node <2> considering successors as neighbors.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 111,
+        "problem": "Calculate the number of common neighbors of node <9> and node <13> considering successors as neighbors.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 112,
+        "problem": "Calculate the number of common neighbors of node <9> and node <13>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 113,
+        "problem": "Calculate the number of common neighbors of node <16> and node <2>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 114,
+        "problem": "What is the out-degree of node <7>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 115,
+        "problem": "What is the out-degree of node <2>?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 116,
+        "problem": "What is the degree of node <8>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 117,
+        "problem": "What is the degree of node <7>?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 118,
+        "problem": "Does the graph have a cycle?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 119,
+        "problem": "Does the graph have a cycle?",
+        "graph_type": "directed"
+    },
+    {
+        "id": 120,
+        "problem": "Does the graph have a cycle?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 121,
+        "problem": "Does the graph have a cycle?",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 122,
+        "problem": "Calculate the clustering coefficient of node <19>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 123,
+        "problem": "Calculate the clustering coefficient of node <8>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 124,
+        "problem": "Calculate the clustering coefficient of node <12>.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 125,
+        "problem": "Calculate the clustering coefficient of node <10>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 126,
+        "problem": "Identify the predecessor nodes of node <16>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 127,
+        "problem": "Identify the predecessor nodes of node <12>.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 128,
+        "problem": "Find a maximum matching in the bipartite graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 129,
+        "problem": "Find a maximum matching in the bipartite graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 130,
+        "problem": "Find a Hamiltonian path in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 131,
+        "problem": "Find a Hamiltonian path in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 132,
+        "problem": "Find a Hamiltonian path in this graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 133,
+        "problem": "Find a Hamiltonian path in this graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 134,
+        "problem": "Output a sequence of traversal in depth-first search [DFS] order starting from node <16>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 135,
+        "problem": "Output a sequence of traversal in depth-first search [DFS] order starting from node <8>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 136,
+        "problem": "Output a sequence of traversal in depth-first search [DFS] order starting from node <3>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 137,
+        "problem": "Output a sequence of traversal in depth-first search [DFS] order starting from node <3>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 138,
+        "problem": "Output a sequence of traversal in breadth-first search [BFS] order starting from node <15>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 139,
+        "problem": "Output a sequence of traversal in breadth-first search [BFS] order starting from node <15>",
+        "graph_type": "directed"
+    },
+    {
+        "id": 140,
+        "problem": "Output a sequence of traversal in breadth-first search [BFS] order starting from node <4>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 141,
+        "problem": "Output a sequence of traversal in breadth-first search [BFS] order starting from node <13>",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 142,
+        "problem": "Determine which node has the largest PageRank value.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 143,
+        "problem": "Determine which node has the largest PageRank value.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 144,
+        "problem": "Determine which node has the largest PageRank value after 3 iterations with a damping factor of 0.85.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 145,
+        "problem": "Determine which node has the largest PageRank value.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 146,
+        "problem": "Find a Euler path in this graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 147,
+        "problem": "Find a Euler path in this graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 148,
+        "problem": "Find a Euler path in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 149,
+        "problem": "Find a Euler path in this graph.",
+        "graph_type": "directed"
+    },
+    {
+        "id": 150,
+        "problem": "Output the total weight of the minimum spanning tree [MST] for this graph.",
+        "graph_type": "undirected"
+    },
+    {
+        "id": 151,
+        "problem": "Output the total weight of the minimum spanning tree [MST] for this graph.",
+        "graph_type": "undirected"
+    }
+]

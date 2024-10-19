@@ -1,0 +1,4 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to answer whether a path is chronological in the dynamic graph. The time of the edges in a chronological path from source node to target node must not decrease, e.g., [2, 3, 5] is a chronological path in the dynamic graph [(2, 3, 0), (3, 5, 1)]\nGive the answer as yes or no at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(4, 5, 0), (4, 7, 0), (6, 7, 0), (7, 8, 0), (3, 4, 1), (1, 2, 2), (1, 9, 2), (3, 8, 2), (4, 8, 2), (4, 9, 2), (0, 5, 3), (3, 7, 3), (5, 8, 3), (5, 9, 3), (1, 5, 4), (3, 6, 4)]. Is the path [2, 8, 6] a chronological path?\n",
+    "answer": "no"
+}

@@ -1,0 +1,8 @@
+{
+    "prompt": "In an undirected dynamic graph, (u, v, t) means that node u and node v are linked with an undirected edge at time t.\nYour task is to answer what nodes are linked with one node only after some time in the dynamic graph.\nGive the answer as a python list at the last of your response after 'Answer:'.\nQuestion: Given an undirected dynamic graph with the edges [(1, 9, 0), (3, 11, 0), (3, 16, 0), (3, 17, 0), (5, 7, 0), (5, 17, 0), (6, 7, 0), (6, 11, 0), (8, 17, 0), (9, 16, 0), (10, 18, 0), (11, 19, 0), (12, 18, 0), (14, 15, 0), (16, 18, 0), (18, 19, 0), (1, 6, 1), (1, 10, 1), (1, 11, 1), (2, 19, 1), (5, 14, 1), (6, 9, 1), (7, 9, 1), (7, 14, 1), (7, 19, 1), (8, 19, 1), (16, 17, 1), (0, 14, 2), (0, 17, 2), (1, 7, 2), (1, 18, 2), (2, 15, 2), (4, 19, 2), (5, 11, 2), (5, 12, 2), (11, 18, 2), (0, 13, 3), (1, 2, 3), (1, 4, 3), (2, 12, 3), (2, 17, 3), (3, 19, 3), (4, 17, 3), (5, 10, 3), (10, 17, 3), (11, 12, 3), (11, 14, 3), (12, 13, 3), (12, 16, 3), (12, 17, 3), (13, 15, 3), (13, 17, 3), (15, 16, 3), (0, 1, 4), (1, 8, 4), (1, 13, 4), (2, 6, 4), (2, 13, 4), (2, 16, 4), (5, 18, 4), (6, 18, 4), (9, 12, 4), (12, 19, 4), (13, 19, 4)]. What nodes are linked with node 16 after or at time 3 but not linked before time 3?\n",
+    "answer": [
+        2,
+        12,
+        15
+    ]
+}
