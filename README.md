@@ -1,6 +1,6 @@
 # GraphTeam
 
-Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration". 
+Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration".
 
 ## Contents
 
@@ -41,7 +41,7 @@ Extensive experiments on six graph analysis benchmarks demonstrate that GraphTea
 
 ## System Requirements
 
-- **Operating System**: Compatible with **Windows** and **Linux**. **Note**: macOS cannot run GNN_benchmark as the `autogl` library does not support it.
+- **Operating System** : Compatible with  **Windows** ,  **Linux** , and  **macOS** .  **Note** : AutoGL only supports x86 platforms, so Macs with M-series chips cannot run GNN_benchmark.
 - **Conda**: Installed
 - **Docker**: Installed and running
 
@@ -189,3 +189,14 @@ The project includes an `answer_format_dict` that specifies the required output 
    ```
 
 This modification ensures that each question includes the appropriate output format directive, guiding the system to format the output correctly and enhancing the reliability of the results.
+
+## Acknowledgement
+
+We would like to acknowledge the following contributors for their valuable support and contributions to the GraphTeam project:
+
+* **Yubin Chen** ([1shuimo](https://github.com/1shuimo))
+* **Zekai Yu** ([yuzekai1234](https://github.com/yuzekai1234))
+* **Yang Liu** ([AckerlyLau](https://github.com/AckerlyLau))
+* **Yaoqi Liu** ([dddg617](https://github.com/dddg617))
+
+Their dedication and expertise have been instrumental in the development and success of this project.
