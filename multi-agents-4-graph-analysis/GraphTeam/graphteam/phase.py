@@ -3,7 +3,7 @@ import re
 from abc import ABC, abstractmethod
 
 from camel.agents import *
-from chatdev.chat_env import ChatEnv
+from graphteam.chat_env import ChatEnv
     
 
 class Phase(ABC):

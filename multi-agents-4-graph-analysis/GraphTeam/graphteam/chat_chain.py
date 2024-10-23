@@ -7,7 +7,7 @@ import time
 from datetime import datetime
 from camel.configs import ChatGPTConfig
 from camel.rag_configs import RAGConfig
-from chatdev.chat_env import ChatEnv
+from graphteam.chat_env import ChatEnv
 
 def check_bool(s):
     return s.lower() == "true"
@@ -87,7 +87,7 @@ class ChatChain:
         self.model_name = model_name
 
         # init Phase instances
-        self.phase_module = importlib.import_module("chatdev.phase")
+        self.phase_module = importlib.import_module("graphteam.phase")
         self.phases = dict()
         for phase in self.config_phase:
             assistant_role_name = self.config_phase[phase]['assistant_role_name']

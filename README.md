@@ -1,99 +1,190 @@
-# 项目名称
+# GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration
 
-Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration".
+## Table of Contents
 
-## 目录
+- [Introduction](#introduction)
+- [System Requirements](#system-requirements)
+- [Installation Steps](#installation-steps)
+  - [1. Create a Conda Virtual Environment](#1-create-a-conda-virtual-environment)
+  - [2. Install Dependencies](#2-install-dependencies)
+  - [3. Using Docker](#3-using-docker)
+- [Running the Project](#running-the-project)
+  - [1. Activate the Conda Environment](#1-activate-the-conda-environment)
+  - [2. Start the Docker Container](#2-start-the-docker-container)
+  - [3. Run `run.py`](#3-run-runpy)
+- [Frequently Asked Questions](#frequently-asked-questions)
 
-- [简介](#简介)
-- [环境要求](#环境要求)
-- [安装步骤](#安装步骤)
-  - [1. 创建 Conda 虚拟环境](#1-创建-conda-虚拟环境)
-  - [2. 安装依赖](#2-安装依赖)
-  - [3. 使用 Docker](#3-使用-docker)
-- [运行项目](#运行项目)
-  - [1. 激活 Conda 环境](#1-激活-conda-环境)
-  - [2. 运行 `run.py`](#2-运行-runpy)
-- [常见问题](#常见问题)
+## Introduction
 
-## 简介
+Graphs are widely used for modeling relational data in real-world scenarios, such as social networks and urban computing. While large language models (LLMs) have achieved strong performance in many areas, existing LLM-based graph analysis approaches either integrate graph neural networks (GNNs) for specific machine learning tasks (e.g., node classification), limiting their transferability, or rely solely on LLMs’ internal reasoning ability, resulting in suboptimal performance.
 
-Graphs are widely used for modeling relational data in real-world scenarios, such as social networks and urban computing. While large language models (LLMs) have achieved strong performance in many areas, existing LLM-based graph analysis approaches either integrate graph neural networks (GNNs) for specific machine learning tasks (e.g., node classification), limiting their transferability, or rely solely on LLMs’ internal reasoning ability, resulting in suboptimal performance. To address these limitations, we take advantage of recent advances in LLM-based agents, which have shown capabilities of utilizing external knowledge or tools for problem solving. By simulating human problem-solving strategies such as analogy and collaboration, we propose a multi-agent system based on LLMs named GraphTeam, for graph analysis. GraphTeam consists of five LLM-based agents from three modules, and the agents with different specialities can collaborate with each other to address complex problems. Specifically, (1) input-output normalization module: the question agent extracts and refines four key arguments (e.g., graph type and output format) from the original question, facilitating the problem understanding, and the answer agent organizes the results to meet the output requirement; (2) external knowledge retrieval module: we first build a knowledge base consisting of relevant documentation and experience information, and then the search agent retrieves the most relevant entries from the knowledge base for each question. (3) problem-solving module: given the retrieved information from search agent, the coding agent uses established algorithms via programming to generate solutions, and in case the coding agent does not work, the reasoning agent will directly compute the results without programming. Extensive experiments on six graph analysis benchmarks demonstrate that GraphTeam achieves state-of-the-art performance with an average 25.85% improvement over the best baseline in terms of accuracy.
+To address these limitations, we leverage recent advances in LLM-based agents, which have demonstrated the capability to utilize external knowledge or tools for problem-solving. By simulating human problem-solving strategies such as analogy and collaboration, we propose a multi-agent system based on LLMs named **GraphTeam** for graph analysis.
 
-## 环境要求
+GraphTeam consists of five LLM-based agents from three modules, where agents with different specialties collaborate to address complex problems. Specifically:
 
-- **操作系统**: 适用于 Windows、macOS 或 Linux
-- **Conda**: 已安装
-- **Docker**: 已安装并运行
+1. **Input-Output Normalization Module**:
 
-## 安装步骤
+   - The **Question Agent** extracts and refines four key arguments (e.g., graph type and output format) from the original question to facilitate problem understanding.
+   - The **Answer Agent** organizes the results to meet the output requirements.
+2. **External Knowledge Retrieval Module**:
 
-### 1. 创建 Conda 虚拟环境
+   - We build a knowledge base consisting of relevant documentation and experience information.
+   - The **Search Agent** retrieves the most relevant entries from the knowledge base for each question.
+3. **Problem-Solving Module**:
 
-首先，使用 Conda 创建一个指定版本的 Python 虚拟环境。
+   - Given the retrieved information from the Search Agent, the **Coding Agent** uses established algorithms via programming to generate solutions.
+   - If the Coding Agent fails, the **Reasoning Agent** directly computes the results without programming.
+
+Extensive experiments on six graph analysis benchmarks demonstrate that GraphTeam achieves state-of-the-art performance with an average 25.85% improvement over the best baseline in terms of accuracy.
+
+## System Requirements
+
+- **Operating System**: Compatible with **Windows** and **Linux**. **Note**: macOS cannot run GNN_benchmark as the `autogl` library does not support it.
+- **Conda**: Installed
+- **Docker**: Installed and running
+
+## Installation Steps
+
+### 1. Create a Conda Virtual Environment
+
+First, create a Conda virtual environment with a specified Python version.
 
 ```bash
 conda create -n myenv python=3.10.14
 ```
 
-激活虚拟环境：
+Activate the virtual environment:
 
 ```bash
 conda activate myenv
 ```
 
-### 2. 安装依赖
+### 2. Install Dependencies
 
-在虚拟环境激活的状态下，运行以下命令安装项目所需的依赖包：
+With the virtual environment activated, run the following command to install the project dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. 使用 Docker
+### 3. Using Docker
 
-Docker 用于在代码生成完成后执行代码。请按照以下步骤操作：
+Docker is used to execute code after it is generated. Follow these steps:
 
-#### 3.1 拉取指定的 Docker 镜像
+#### 3.1 Pull the Specified Docker Image
 
 ```bash
 docker pull chuqizhi72/execute_agent_environment:latest
 ```
 
-#### 3.2 创建名为 `test` 的容器
+#### 3.2 Create a Container Named `test`
 
 ```bash
 docker create --name test chuqizhi72/execute_agent_environment:latest
 ```
 
-## 运行项目
+## Running the Project
 
-### 1. 激活 Conda 环境
+### 1. Activate the Conda Environment
 
-确保 Conda 虚拟环境已激活。如果尚未激活，请运行：
+Ensure that the Conda virtual environment is activated. If not, run:
 
 ```bash
 conda activate myenv
 ```
 
-### 2. 启动 Docker 容器
+### 2. Start the Docker Container
 
-确保 Docker 容器已启动。如果尚未启动，请运行：
+Ensure the Docker container is started. If not, run:
 
 ```bash
 docker start test
 docker exec -it test /bin/bash
 ```
 
-### 2. 运行 `run.py`
+### 3. Run `run.py`
 
-在激活的虚拟环境中，导航到项目目录并运行 `run.py`：
+Within the activated virtual environment, navigate to the project directory, ensure your current working directory is set to `multi-agents-4-graph-analysis`, and set your OpenAI API key in `run.py`. Then, run `run.py`:
 
 ```bash
-python run.py
+cd multi-agents-4-graph-analysis
 ```
 
-## 常见问题
+**Setting the OpenAI API Key:**
 
-### 问题 1: 运行 `run.py` 时出错
+1. Open `run.py` located at `multi-agents-4-graph-analysis/GraphTeam/run.py` in your preferred text editor.
+2. Locate the line where the OpenAI API key is set. It should look like this:
 
-**解决方案**: 确保所有依赖已正确安装，并且虚拟环境和docker已激活。检查 `run.py` 中的路径和配置是否正确。
+   ```python
+   os.environ['OPENAI_API_KEY'] = 'your-api-key-here'
+   ```
+3. Replace `'your-api-key-here'` with your actual OpenAI API key:
+
+   ```python
+   os.environ['OPENAI_API_KEY'] = 'sk-your-openai-api-key'
+   ```
+
+**Running the Script:**
+
+After setting the API key, execute the script from the `multi-agents-4-graph-analysis` directory:
+
+```bash
+python GraphTeam/run.py
+```
+
+**Note for Running the NLGraph Benchmark:**
+
+The project includes an `answer_format_dict` that specifies the required output format for different problem types. To ensure consistency and accuracy in the results when running the NLGraph benchmark, you need to modify the `run_threaded` function in the `run.py` file.
+
+1. Open `run.py` located at `multi-agents-4-graph-analysis/GraphTeam/run.py` in your preferred text editor.
+2. Locate the `run_threaded` function and answer_format_dict.
+3. Find the following commented lines within the function:
+
+   ```
+   # if is NLGraph, the question should add output format
+   # question = question + answer_format_dict[category_data['type'][i]]
+   ```
+4. Uncomment these lines by removing the `#` symbols:
+
+```
+# if is NLGraph, the question should add output format
+question = question + answer_format_dict[category_data['type'][i]]
+```
+
+
+This modification ensures that each question includes the appropriate output format directive, guiding the system to format the output correctly and enhancing the reliability of the results.
+
+## Frequently Asked Questions
+
+### Q1: I Encounter an Error When Running `run.py`
+
+**Solution**: Ensure all dependencies are correctly installed and that both the Conda environment and Docker are activated. Check the paths and configurations in `run.py` to ensure they are correct. Additionally, verify that you have set your OpenAI API key correctly in `run.py`.
+
+### Q2: What Should Be the Working Directory When Running the Project?
+
+**Solution**: When running the project, ensure that your current working directory is set to `multi-agents-4-graph-analysis`. This ensures that all relative paths and configurations function correctly.
+
+### Q3: Where Can I Find the Knowledge Base Used by the Search Agent?
+
+**Solution**: The relevant documentation is located in the `data` directory of the project. The relevant documentation is located in the `memory` directory of the project. Ensure that all relevant files are present and properly formatted.
+
+### Q4: How Do I Modify Questions When Running the NLGraph Benchmark?
+
+The project includes an `answer_format_dict` that specifies the required output format for different problem types. To ensure consistency and accuracy in the results when running the NLGraph benchmark, you need to modify the `run_threaded` function in the `run.py` file.
+
+1. Open `run.py` located at `multi-agents-4-graph-analysis/GraphTeam/run.py` in your preferred text editor.
+2. Locate the `run_threaded` function.
+3. Find the following commented lines within the function:
+
+   ```
+   # if is NLGraph, the question should add output format
+   # question = question + answer_format_dict[category_data['type'][i]]
+   ```
+4. Uncomment these lines by removing the `#` symbols:
+
+   ```
+   # if is NLGraph, the question should add output format
+   question = question + answer_format_dict[category_data['type'][i]]
+   ```
+
+This modification ensures that each question includes the appropriate output format directive, guiding the system to format the output correctly and enhancing the reliability of the results.

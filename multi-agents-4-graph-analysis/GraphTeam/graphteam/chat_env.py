@@ -1,5 +1,5 @@
 from typing import Dict
-from chatdev.roster import Roster
+from graphteam.roster import Roster
 
 class ChatEnv:
     def __init__(self, with_memory: bool = False):
