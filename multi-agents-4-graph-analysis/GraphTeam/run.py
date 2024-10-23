@@ -20,16 +20,16 @@ os.environ['OPENAI_API_KEY'] = ''
 os.environ['OPENAI_BASE_URL'] = ""
 os.environ['OPENAI_API_BASE'] = ''
 
-# answer_format_dict = {
-#     "matching": "In the answer, you should replace number with the actual problem and result,Output format such as : applicant 0: job 2 \n 1 applicants can find the job they are interested in.",
-#     "shortest_path": "In the answer, you should replace number with the actual problem and result, Output format such as : The shortest path from node 1 to node 6 is 1,4,6 with a total weight of 5 ",
-#     "topology": "In the answer, you should replace number with the actual problem and result, below is just an example, Output format such as : The solution is: 2,3,7",
-#     "cycle": " Output format such as : TRUE or False",
-#     "GNN": "In the answer, you should replace number with the actual problem and result, Output format such as : \n node x: [1,1]\n ",
-#     "hamilton": "In the answer, you should replace number with the actual problem and result, below is just an example, Output format such as : Yes. The path can be: 1,4,8",
-#     "flow": "In the answer, you should replace number with the actual problem and result, Output format such as : The maximum flow from node 2 to node 6 is 3",
-#     "connectivity": "Output format such as : TRUE or False"
-# }
+answer_format_dict = {
+    "matching": "In the answer, you should replace number with the actual problem and result,Output format such as : applicant 0: job 2 \n 1 applicants can find the job they are interested in.",
+    "shortest_path": "In the answer, you should replace number with the actual problem and result, Output format such as : The shortest path from node 1 to node 6 is 1,4,6 with a total weight of 5 ",
+    "topology": "In the answer, you should replace number with the actual problem and result, below is just an example, Output format such as : The solution is: 2,3,7",
+    "cycle": " Output format such as : TRUE or False",
+    "GNN": "In the answer, you should replace number with the actual problem and result, Output format such as : \n node x: [1,1]\n ",
+    "hamilton": "In the answer, you should replace number with the actual problem and result, below is just an example, Output format such as : Yes. The path can be: 1,4,8",
+    "flow": "In the answer, you should replace number with the actual problem and result, Output format such as : The maximum flow from node 2 to node 6 is 3",
+    "connectivity": "Output format such as : TRUE or False"
+}
 
 # Check OpenAI API version
 try:

@@ -146,11 +146,10 @@ The project includes an `answer_format_dict` that specifies the required output 
    ```
 4. Uncomment these lines by removing the `#` symbols:
 
-```
-# if is NLGraph, the question should add output format
-question = question + answer_format_dict[category_data['type'][i]]
-```
-
+   ```
+   # if is NLGraph, the question should add output format
+   question = question + answer_format_dict[category_data['type'][i]]
+   ```
 
 This modification ensures that each question includes the appropriate output format directive, guiding the system to format the output correctly and enhancing the reliability of the results.
 
