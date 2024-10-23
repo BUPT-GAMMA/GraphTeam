@@ -1,6 +1,8 @@
-# GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration
+# GraphTeam
 
-## Table of Contents
+Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration". 
+
+## Contents
 
 - [Introduction](#introduction)
 - [System Requirements](#system-requirements)
@@ -153,7 +155,7 @@ The project includes an `answer_format_dict` that specifies the required output 
 
 This modification ensures that each question includes the appropriate output format directive, guiding the system to format the output correctly and enhancing the reliability of the results.
 
-## Frequently Asked Questions
+## Questions
 
 ### Q1: I Encounter an Error When Running `run.py`
 
