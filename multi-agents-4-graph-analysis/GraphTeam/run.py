@@ -118,7 +118,7 @@ def get_config(company):
 
     return tuple(config_paths)
 
-def csv2json(total_data, output_path):
+def data2json(total_data, output_path):
     """
     Convert a DataFrame to JSON and save to a file.
 
@@ -368,7 +368,7 @@ def main(args):
         )
 
         # Save results after processing each category
-        csv2json(total_data, output_path)
+        data2json(total_data, output_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process benchmark data with ChatChain.")
