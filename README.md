@@ -43,8 +43,6 @@ Extensive experiments on six graph analysis benchmarks demonstrate that GraphTea
 
 The overall pipeline of our multi-agent system GraphTeam (left), and the comparison between GraphTeam and state-of-the-art baseline on six benchmarks (right).
 
-
-
 <div style="display: flex; justify-content: space-between;">
   <img src="images/simplified_modules.jpg" alt="simplified_modules" style="width: 50%; height: auto;" title="pipeline of our multi-agent system GraphTeam">
   <img src="images/baseline_ours_radar_page-0001.jpg" alt="baseline_ours_radar_page" style="width: 40%; height: auto;" title="comparison between GraphTeam and state-of-the-art baseline">
@@ -52,15 +50,25 @@ The overall pipeline of our multi-agent system GraphTeam (left), and the compari
 
 The overall framework of GraphTeam, which includes five agents from three functional groups.
 
-![modules](images\modules.jpg "The overall framework of GraphTeam")
+
+<div style="display: flex; justify-content: center;">
+  <img src="images\modules.jpg" alt="module" width="75%">
+</div>
+
 
 Performance with respect to different task categories.
 
-![question_type](images\question_type_page-0001.jpg "Performance with respect to different task categories.")
+<div style="display: flex; justify-content: center;">
+  <img src="images\question_type_page-0001.jpg" alt="question_type" width="90%">
+</div>
+
 
 Performance with respect to different output formats.
 
-![output_type](images\output_type_page-0001.jpg "Performance with respect to different output formats.")
+<div style="display: flex; justify-content: center;">
+  <img src="images\output_type_page-0001.jpg" alt="output_type" width="90%">
+</div>
+
 
 Hyper-parameter analysis of four hyper-parameter in the proposed GraphTeam
 
@@ -73,7 +81,10 @@ Hyper-parameter analysis of four hyper-parameter in the proposed GraphTeam
 
 Performance comparison on six graph analysis benchmarks in terms of accuracy (%).
 
-![Performance](images\Performance.jpg "Performance comparison")
+<div style="display: flex; justify-content: center;">
+  <img src="images\Performance.jpg" alt="Performance" width="75%">
+</div>
+
 
 ## System Requirements
 
