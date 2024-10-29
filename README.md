@@ -2,6 +2,8 @@
 
 Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration".
 
+* **Paper Link:** ([[2410.18032] GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration](https://arxiv.org/abs/2410.18032))
+
 ## Contents
 
 - [Introduction](#introduction)
@@ -38,6 +40,40 @@ GraphTeam consists of five LLM-based agents from three modules, where agents wit
    - If the Coding Agent fails, the **Reasoning Agent** directly computes the results without programming.
 
 Extensive experiments on six graph analysis benchmarks demonstrate that GraphTeam achieves state-of-the-art performance with an average 25.85% improvement over the best baseline in terms of accuracy.
+
+The overall pipeline of our multi-agent system GraphTeam (left), and the comparison between GraphTeam and state-of-the-art baseline on six benchmarks (right).
+
+
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="images/simplified_modules.jpg" alt="simplified_modules" style="width: 50%; height: auto;" title="pipeline of our multi-agent system GraphTeam">
+  <img src="images/baseline_ours_radar_page-0001.jpg" alt="baseline_ours_radar_page" style="width: 40%; height: auto;" title="comparison between GraphTeam and state-of-the-art baseline">
+</div>
+
+The overall framework of GraphTeam, which includes five agents from three functional groups.
+
+![modules](images\modules.jpg "The overall framework of GraphTeam")
+
+Performance with respect to different task categories.
+
+![question_type](images\question_type_page-0001.jpg "Performance with respect to different task categories.")
+
+Performance with respect to different output formats.
+
+![output_type](images\output_type_page-0001.jpg "Performance with respect to different output formats.")
+
+Hyper-parameter analysis of four hyper-parameter in the proposed GraphTeam
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="images\retry_check_page-0001.jpg" alt="retry_check" width="23%">
+  <img src="images\retry_page-0001.jpg" alt="retry" width="23%">
+  <img src="images\N_experience_page-0001.jpg" alt="N_experience" width="23%">
+  <img src="images\threshold_page-0001.jpg" alt="threshold" width="23%">
+</div>
+
+Performance comparison on six graph analysis benchmarks in terms of accuracy (%).
+
+![Performance](images\Performance.jpg "Performance comparison")
 
 ## System Requirements
 
