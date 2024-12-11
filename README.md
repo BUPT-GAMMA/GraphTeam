@@ -126,10 +126,10 @@ Docker is used to execute code after it is generated. Follow these steps:
 docker pull chuqizhi72/execute_agent_environment:latest
 ```
 
-#### 3.2 Create a Container Named `test`
+#### 3.2 Create and run a Container Named `test`
 
 ```bash
-docker create --name test chuqizhi72/execute_agent_environment:latest
+docker run -it --name test chuqizhi72/execute_agent_environment:latest /bin/bash
 ```
 
 ## Running the Project
