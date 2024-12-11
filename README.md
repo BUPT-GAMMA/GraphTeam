@@ -121,7 +121,7 @@ Docker is used to execute code after it is generated. Follow these steps:
 docker pull chuqizhi72/graphteam:latest
 ```
 
-#### 3.2 Create and run a Container Named `test`
+#### 3.2 Create and run a Container Named `graphteam`
 
 ```bash
 docker run -it --name graphteam chuqizhi72/graphteam:latest /bin/bash
