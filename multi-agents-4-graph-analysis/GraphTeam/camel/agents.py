@@ -367,17 +367,17 @@ class ExecuteAgent(Agent):
         encoded_code = base64.b64encode(code.encode()).decode()
         if 'autogl' in code:
             docker_command = [
-                "docker", "exec", "-it", "test", 
+                "docker", "exec", "-it", "graphteam", 
                 "bash", "-c", "source activate autogl && python /root/execute_code.py --code " + encoded_code
             ]
         elif 'karateclub' in code:
             docker_command = [
-                "docker", "exec", "-it", "test", 
+                "docker", "exec", "-it", "graphteam", 
                 "bash", "-c", "source activate karateclub && python /root/execute_code.py --code " + encoded_code
             ]
         else:
             docker_command = [
-                "docker", "exec", "-it", "test", 
+                "docker", "exec", "-it", "graphteam", 
                 "bash", "-c", "source activate pyg && python /root/execute_code.py --code " + encoded_code
             ]
         return docker_command

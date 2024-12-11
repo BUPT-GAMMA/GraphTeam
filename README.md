@@ -50,11 +50,9 @@ The overall pipeline of our multi-agent system GraphTeam (left), and the compari
 
 The overall framework of GraphTeam, which includes five agents from three functional groups.
 
-
 <div style="display: flex; justify-content: center;">
   <img src="images\modules.jpg" alt="module" width="75%">
 </div>
-
 
 Performance with respect to different task categories.
 
@@ -62,13 +60,11 @@ Performance with respect to different task categories.
   <img src="images\question_type_page-0001.jpg" alt="question_type" width="90%">
 </div>
 
-
 Performance with respect to different output formats.
 
 <div style="display: flex; justify-content: center;">
   <img src="images\output_type_page-0001.jpg" alt="output_type" width="90%">
 </div>
-
 
 Hyper-parameter analysis of four hyper-parameter in the proposed GraphTeam
 
@@ -84,7 +80,6 @@ Performance comparison on six graph analysis benchmarks in terms of accuracy (%)
 <div style="display: flex; justify-content: center;">
   <img src="images\Performance.jpg" alt="Performance" width="75%">
 </div>
-
 
 ## System Requirements
 
@@ -123,13 +118,13 @@ Docker is used to execute code after it is generated. Follow these steps:
 #### 3.1 Pull the Specified Docker Image
 
 ```bash
-docker pull chuqizhi72/execute_agent_environment:latest
+docker pull chuqizhi72/graphteam:latest
 ```
 
 #### 3.2 Create and run a Container Named `test`
 
 ```bash
-docker run -it --name test chuqizhi72/execute_agent_environment:latest /bin/bash
+docker run -it --name graphteam chuqizhi72/graphteam:latest /bin/bash
 ```
 
 ## Running the Project
@@ -147,8 +142,8 @@ conda activate myenv
 Ensure the Docker container is started. If not, run:
 
 ```bash
-docker start test
-docker exec -it test /bin/bash
+docker start graphteam
+docker exec -it graphteam /bin/bash
 ```
 
 ### 3. Run `run.py`
