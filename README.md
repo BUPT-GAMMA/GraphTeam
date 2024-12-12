@@ -20,10 +20,6 @@ Official Repository of "GraphTeam: Facilitating Large Language Model-based Graph
 
 ## Introduction
 
-Graphs are widely used for modeling relational data in real-world scenarios, such as social networks and urban computing. While large language models (LLMs) have achieved strong performance in many areas, existing LLM-based graph analysis approaches either integrate graph neural networks (GNNs) for specific machine learning tasks (e.g., node classification), limiting their transferability, or rely solely on LLMs’ internal reasoning ability, resulting in suboptimal performance.
-
-To address these limitations, we leverage recent advances in LLM-based agents, which have demonstrated the capability to utilize external knowledge or tools for problem-solving. By simulating human problem-solving strategies such as analogy and collaboration, we propose a multi-agent system based on LLMs named **GraphTeam** for graph analysis.
-
 GraphTeam consists of five LLM-based agents from three modules, where agents with different specialties collaborate to address complex problems. Specifically:
 
 1. **Input-Output Normalization Module**:
@@ -51,34 +47,13 @@ The overall pipeline of our multi-agent system GraphTeam (left), and the compari
 The overall framework of GraphTeam, which includes five agents from three functional groups.
 
 <div style="display: flex; justify-content: center;">
-  <img src="images\modules.jpg" alt="module" width="75%">
-</div>
-
-Performance with respect to different task categories.
-
-<div style="display: flex; justify-content: center;">
-  <img src="images\question_type_page-0001.jpg" alt="question_type" width="90%">
-</div>
-
-Performance with respect to different output formats.
-
-<div style="display: flex; justify-content: center;">
-  <img src="images\output_type_page-0001.jpg" alt="output_type" width="90%">
-</div>
-
-Hyper-parameter analysis of four hyper-parameter in the proposed GraphTeam
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="images\retry_check_page-0001.jpg" alt="retry_check" width="23%">
-  <img src="images\retry_page-0001.jpg" alt="retry" width="23%">
-  <img src="images\N_experience_page-0001.jpg" alt="N_experience" width="23%">
-  <img src="images\threshold_page-0001.jpg" alt="threshold" width="23%">
+  <img src="images\modules.jpg" alt="module" width="100%">
 </div>
 
 Performance comparison on six graph analysis benchmarks in terms of accuracy (%).
 
 <div style="display: flex; justify-content: center;">
-  <img src="images\Performance.jpg" alt="Performance" width="75%">
+  <img src="images\Performance.jpg" alt="Performance" width="100%">
 </div>
 
 ## System Requirements
@@ -242,3 +217,29 @@ We would like to acknowledge the following contributors for their valuable suppo
 * **Yaoqi Liu** ([dddg617](https://github.com/dddg617))
 
 Their dedication and expertise have been instrumental in the development and success of this project.
+
+## Citation
+
+```text
+@misc{li2024largelanguagemodelsanalyze,
+      title={Can Large Language Models Analyze Graphs like Professionals? A Benchmark, Datasets and Models}, 
+      author={Xin Li and Weize Chen and Qizhi Chu and Haopeng Li and Zhaojun Sun and Ran Li and Chen Qian and Yiwei Wei and Zhiyuan Liu and Chuan Shi and Maosong Sun and Cheng Yang},
+      year={2024},
+      eprint={2409.19667},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2409.19667}, 
+}
+```
+
+```text
+@misc{li2024graphteamfacilitatinglargelanguage,
+      title={GraphTeam: Facilitating Large Language Model-based Graph Analysis via Multi-Agent Collaboration}, 
+      author={Xin Li and Qizhi Chu and Yubin Chen and Yang Liu and Yaoqi Liu and Zekai Yu and Weize Chen and Chen Qian and Chuan Shi and Cheng Yang},
+      year={2024},
+      eprint={2410.18032},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2410.18032}, 
+}
+```

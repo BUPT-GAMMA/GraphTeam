@@ -16,9 +16,13 @@ from graphteam.chat_chain import ChatChain
 lock = threading.Lock()
 
 # Set environment variables
-os.environ['OPENAI_API_KEY'] = ''
-os.environ['OPENAI_BASE_URL'] = ""
-os.environ['OPENAI_API_BASE'] = ''
+# os.environ['OPENAI_API_KEY'] = 'sk-1Pq4qrgQ9bwgThM5F00559A15b504948B09c6053685f118b'
+# os.environ['OPENAI_API_BASE'] = 'https://api.fast-tunnel.one/v1'
+# os.environ['OPENAI_BASE_URL'] = 'https://api.fast-tunnel.one/v1/'
+
+os.environ['OPENAI_API_KEY'] = 'sk-NbLOo4553xDNbYbm4432BcE78eA34010B0002a31E8589d38'
+os.environ['OPENAI_API_BASE'] = 'https://dzqc.link/v1'
+os.environ['OPENAI_BASE_URL'] = 'https://dzqc.link/v1/'
 
 answer_format_dict = {
     "matching": "In the answer, you should replace number with the actual problem and result,Output format such as : applicant 0: job 2 \n 1 applicants can find the job they are interested in.",
@@ -303,6 +307,27 @@ def get_categories_finished(data):
     filtered_df = data[data['result'].notna()]
     return filtered_df['type'].unique()
 
+def merge_dataframes(total_data, finished_data):
+
+    columns_to_merge = ['result', 'run', 'code', 'search_result']
+
+    # 对于 total_data 中不存在的列，先添加空值列
+    for col in columns_to_merge:
+        if col not in total_data.columns:
+            total_data[col] = pd.Series([None] * len(total_data), index=total_data.index)
+    
+    # 假设两者的行顺序是一致的，否则需要基于唯一键匹配
+    total_data = total_data.reset_index(drop=True)
+    finished_data = finished_data.reset_index(drop=True)
+    
+    # 用 finished_data 中对应列的值填补 total_data 中的空值
+    for col in columns_to_merge:
+        # 如果 finished_data 有这个列，则进行填补
+        if col in finished_data.columns:
+            total_data[col] = total_data[col].fillna(finished_data[col])
+    
+    return total_data
+
 def main(args):
 
     # Load RAG data
@@ -322,6 +347,10 @@ def main(args):
     # Define file paths
     file_path = args.input
     output_path = args.output
+    
+    global total_data, finished_data
+    
+    finished_data_copy = pd.DataFrame()  # 先初始化为空的 DataFrame
 
     # Load input data
     total_data = pd.read_json(file_path, orient='records', dtype={'search_result': 'object'})
@@ -340,6 +369,7 @@ def main(args):
             categories_finished = []
         else:
             finished_data = pd.read_json(output_path)
+            finished_data_copy = finished_data.copy()
             total_data['result'] = finished_data.get('result', None)
             total_data['run'] = finished_data.get('run', None)
             total_data['code'] = finished_data.get('code', None)
@@ -366,9 +396,11 @@ def main(args):
             model,
             num_threads=args.num_threads
         )
-
+        
+        merged_data = merge_dataframes(total_data, finished_data_copy)
+        
         # Save results after processing each category
-        data2json(total_data, output_path)
+        data2json(merged_data, output_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process benchmark data with ChatChain.")
