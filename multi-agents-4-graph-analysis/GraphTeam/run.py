@@ -16,7 +16,7 @@ from graphteam.chat_chain import ChatChain
 lock = threading.Lock()
 
 # Set environment variables
-os.environ['OPENAI_API_KEY'] = 'sk-aOTEVxvlZ3T8fZSp9d4a13E86eA5403a95CaB35a03E8De6e'
+os.environ['OPENAI_API_KEY'] = ''
 os.environ['OPENAI_API_BASE'] = ''
 os.environ['OPENAI_BASE_URL'] = ''
 
