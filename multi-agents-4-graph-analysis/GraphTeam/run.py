@@ -16,9 +16,15 @@ from graphteam.chat_chain import ChatChain
 lock = threading.Lock()
 
 # Set environment variables
+<<<<<<< Updated upstream
 os.environ['OPENAI_API_KEY'] = ''
 os.environ['OPENAI_API_BASE'] = ''
 os.environ['OPENAI_BASE_URL'] = ''
+=======
+os.environ['OPENAI_API_KEY'] = 'sk-40ow2TRiMaAVos9T7f01A48051934a70909fAf73C689Be61'
+os.environ['OPENAI_BASE_URL'] = "https://dzqc.link/v1/"
+os.environ['OPENAI_API_BASE'] = 'https://dzqc.link/v1/'
+>>>>>>> Stashed changes
 
 answer_format_dict = {
     "matching": "In the answer, you should replace number with the actual problem and result,Output format such as : applicant 0: job 2 \n 1 applicants can find the job they are interested in.",
@@ -354,7 +360,25 @@ def main(args):
     # Get all categories
     categories = get_categories(total_data)
 
+    finished_file_path = Path(output_path)
+
+
+    if not finished_file_path.exists():
+        categories_finished = []
+    else:
+        finished_data = pd.read_json(output_path)
+        total_data['result'] = finished_data.get('result', None).to_list()
+        total_data['run'] = finished_data.get('run', None).to_list()
+        total_data['code'] = finished_data.get('code', None).to_list()
+        if 'search_result' not in finished_data.columns:
+            finished_data['search_result'] = None
+        total_data['search_result'] = finished_data.get('search_result', None).astype(object).to_list()
+
+        categories_finished = get_categories_finished(finished_data)
+        categories = list(set(categories) - set(categories_finished))
+
     for category in categories:
+<<<<<<< Updated upstream
         finished_file_path = Path(output_path)
 
         if not finished_file_path.exists():
@@ -372,6 +396,8 @@ def main(args):
 
         if category in categories_finished:
             continue
+=======
+>>>>>>> Stashed changes
 
         print(f"Processing category {category}")
 
