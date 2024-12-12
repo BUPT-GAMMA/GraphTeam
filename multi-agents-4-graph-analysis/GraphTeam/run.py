@@ -16,13 +16,9 @@ from graphteam.chat_chain import ChatChain
 lock = threading.Lock()
 
 # Set environment variables
-# os.environ['OPENAI_API_KEY'] = 'sk-1Pq4qrgQ9bwgThM5F00559A15b504948B09c6053685f118b'
-# os.environ['OPENAI_API_BASE'] = 'https://api.fast-tunnel.one/v1'
-# os.environ['OPENAI_BASE_URL'] = 'https://api.fast-tunnel.one/v1/'
-
-os.environ['OPENAI_API_KEY'] = 'sk-NbLOo4553xDNbYbm4432BcE78eA34010B0002a31E8589d38'
-os.environ['OPENAI_API_BASE'] = 'https://dzqc.link/v1'
-os.environ['OPENAI_BASE_URL'] = 'https://dzqc.link/v1/'
+os.environ['OPENAI_API_KEY'] = ''
+os.environ['OPENAI_API_BASE'] = ''
+os.environ['OPENAI_BASE_URL'] = ''
 
 answer_format_dict = {
     "matching": "In the answer, you should replace number with the actual problem and result,Output format such as : applicant 0: job 2 \n 1 applicants can find the job they are interested in.",
