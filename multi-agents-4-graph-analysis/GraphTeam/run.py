@@ -16,7 +16,7 @@ from graphteam.chat_chain import ChatChain
 lock = threading.Lock()
 
 # Set environment variables
-os.environ['OPENAI_API_KEY'] = ''
+os.environ['OPENAI_API_KEY'] = 'sk-aOTEVxvlZ3T8fZSp9d4a13E86eA5403a95CaB35a03E8De6e'
 os.environ['OPENAI_API_BASE'] = ''
 os.environ['OPENAI_BASE_URL'] = ''
 
@@ -307,18 +307,14 @@ def merge_dataframes(total_data, finished_data):
 
     columns_to_merge = ['result', 'run', 'code', 'search_result']
 
-    # 对于 total_data 中不存在的列，先添加空值列
     for col in columns_to_merge:
         if col not in total_data.columns:
             total_data[col] = pd.Series([None] * len(total_data), index=total_data.index)
     
-    # 假设两者的行顺序是一致的，否则需要基于唯一键匹配
     total_data = total_data.reset_index(drop=True)
     finished_data = finished_data.reset_index(drop=True)
     
-    # 用 finished_data 中对应列的值填补 total_data 中的空值
     for col in columns_to_merge:
-        # 如果 finished_data 有这个列，则进行填补
         if col in finished_data.columns:
             total_data[col] = total_data[col].fillna(finished_data[col])
     
@@ -346,7 +342,7 @@ def main(args):
     
     global total_data, finished_data
     
-    finished_data_copy = pd.DataFrame()  # 先初始化为空的 DataFrame
+    finished_data_copy = pd.DataFrame()
 
     # Load input data
     total_data = pd.read_json(file_path, orient='records', dtype={'search_result': 'object'})
