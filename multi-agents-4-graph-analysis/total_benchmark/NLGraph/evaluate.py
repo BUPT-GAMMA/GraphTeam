@@ -53,7 +53,10 @@ def evaluate_flow(result, answer, question):
     mode_str = "the maximum flow from node "+str(q[0])+" to node " + str(q[1])
     pos = result.find(mode_str)
     if pos == -1:
-        return 0, 0
+        mode_str = "maximum flow from node "+str(q[0])+" to node " + str(q[1])
+        pos = result.find(mode_str)
+        if pos == -1:
+            return 0, 0
     flag1, flag2 = 1, 1
     pos = pos + len(mode_str) + 1
     i = pos
