@@ -6,8 +6,8 @@ import json
 import pandas as pd
 import eval
 
-openai.api_key = 'sk-OoE0QcYsus1QT3UUC832C76bA7D0403cA3F1669e74Ab00E3'
-openai.base_url = 'https://dzqc.link/v1/'
+openai.api_key = ''
+openai.base_url = ''
 model_use = 'gpt-4o-mini'
         
 question_prompt = """
