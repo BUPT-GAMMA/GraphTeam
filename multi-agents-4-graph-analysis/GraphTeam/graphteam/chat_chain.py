@@ -122,18 +122,20 @@ class ChatChain:
         """
 
         phase = phase_item['phase']
+        self.chat_env.env_dict["logger"].log(logging.INFO, f"execute {phase} phase")
         if phase in self.phases:
             self.chat_env = self.phases[phase].execute(self.chat_env, phase_item)
         else:
             raise RuntimeError(f"Phase '{phase}' is not yet implemented in chatdev.phase")
 
-    def execute_chain(self,lock):
+    def execute_chain(self, lock, logger):
         """
         execute the whole chain based on ChatChainConfig.json
         lock: lock object
+        logger: logger object
         Returns: None
-
         """
         self.chat_env.env_dict["lock"] = lock
+        self.chat_env.env_dict["logger"] = logger
         for phase_item in self.chain:
             self.execute_step(phase_item)

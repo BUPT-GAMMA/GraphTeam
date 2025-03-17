@@ -1,11 +1,15 @@
-import threading
-from tqdm import tqdm
-import pandas as pd
 import os
 import sys
+import time
 import json
+import logging
 import argparse
+import threading
+import pandas as pd
+from tqdm import tqdm
+from uuid import uuid4
 from pathlib import Path
+from camel.log import TaskLogger
 
 # Import ChatChain after setting the root path
 root = os.path.dirname(__file__)
@@ -131,7 +135,7 @@ def data2json(total_data, output_path):
     with open(output_path, 'w') as f:
         json.dump(data_dict, f, indent=4)
 
-def run_threaded(start_idx, end_idx, progress_bar, category_data, index, total_data, config_paths, rag_data, memory_index, memory_data, model):
+def run_threaded(start_idx, end_idx, progress_bar, category_data, index, total_data, config_paths, rag_data, memory_index, memory_data, model, log_dir):
     """
     Function to process a chunk of data in a thread and update results.
 
@@ -159,6 +163,10 @@ def run_threaded(start_idx, end_idx, progress_bar, category_data, index, total_d
         # Handle NaN values
         if pd.isna(library):
             library = None
+            
+        logger = TaskLogger(f"{index[i]}_{uuid4().hex[:6]}", log_dir=log_dir)
+
+        logger.log(logging.INFO, f"Processing row {index[i]} with question: {question}")
 
         # Initialize ChatChain
         chat_chain = ChatChain(
@@ -173,7 +181,7 @@ def run_threaded(start_idx, end_idx, progress_bar, category_data, index, total_d
             library=library
         )
         chat_chain.make_recruitment()
-        chat_chain.execute_chain(lock)
+        chat_chain.execute_chain(lock, logger=logger)
 
         # Update the main DataFrame with results
         idx = index[i]
@@ -187,7 +195,7 @@ def run_threaded(start_idx, end_idx, progress_bar, category_data, index, total_d
 
         progress_bar.update(1)
 
-def run_all(category_data, index, total_data, config_paths, rag_data, memory_index, memory_data, model, num_threads=1):
+def run_all(category_data, index, total_data, config_paths, rag_data, memory_index, memory_data, model, log_dir, num_threads=1):
     """
     Run data processing in multiple threads and update the main DataFrame.
 
@@ -213,8 +221,8 @@ def run_all(category_data, index, total_data, config_paths, rag_data, memory_ind
         thread = threading.Thread(
             target=run_threaded,
             args=(
-                start_idx, end_idx, global_progress_bar, category_data, index, 
-                total_data, config_paths, rag_data, memory_index, memory_data, model
+                start_idx, end_idx, global_progress_bar, category_data, index, total_data, 
+                config_paths, rag_data, memory_index, memory_data, model, log_dir
             )
         )
         threads.append(thread)
@@ -335,6 +343,10 @@ def main(args):
     # Load memory data
     memory_index = load_memory_data("GraphTeam/memory/memory_index.json")
     memory_data = load_memory_data("GraphTeam/memory/memory_info.json")
+    
+    #log dir
+    benchmark_name = Path(args.input).stem + time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
+    log_dir = args.log_dir if args.log_dir else f"logs/{benchmark_name}"
 
     # Define file paths
     file_path = args.input
@@ -372,7 +384,7 @@ def main(args):
         categories = list(set(categories) - set(categories_finished))
 
     for category in categories:
-
+        dir = f"{log_dir}/{category}"
         print(f"Processing category {category}")
 
         category_data, category_index = get_category_data(total_data, category)
@@ -386,6 +398,7 @@ def main(args):
             memory_index, 
             memory_data, 
             model,
+            dir,
             num_threads=args.num_threads
         )
         
@@ -447,6 +460,13 @@ if __name__ == "__main__":
         type=str,
         default='total_benchmark/NLGraph/result.json',
         help="Specify the output file path (default: total_benchmark/NLGraph/result.json')"
+    )
+    
+    parser.add_argument(
+        '--log_dir',
+        type=str,
+        default=None,
+        help="Specify whether to log the results (default: logs/your_benchmark_name_timestamp/category)"
     )
 
     args = parser.parse_args()

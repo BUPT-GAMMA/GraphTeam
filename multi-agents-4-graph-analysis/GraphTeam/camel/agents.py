@@ -1,11 +1,13 @@
+import os
+import re
 import json
 import base64
+import logging
 import subprocess
 from typing import Any, Dict, List, Optional
 from tenacity import retry
 from tenacity.stop import stop_after_attempt
 from tenacity.wait import wait_exponential
-import os
 from llama_index.llms.openai import OpenAI
 from llama_index.core.node_parser import JSONNodeParser
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
@@ -15,7 +17,6 @@ from camel.rag_configs import RAGConfig
 from camel.memory_configs import MemoryConfig
 from camel.model_backend import ModelBackend, ModelFactory
 from llama_index.core import Document  # 确保导入正确的 Document 类
-import re
 
 try:
     from openai.types.chat import ChatCompletion
@@ -392,6 +393,7 @@ class ExecuteAgent(Agent):
 
         lock = phase_env['lock']
         code = phase_env['Codes']
+        logger = phase_env['logger']
         phase_prompt = phase_env['phase_prompt']
 
         result = self.execute_code(code, lock)
@@ -412,7 +414,8 @@ class ExecuteAgent(Agent):
         elif "Error:" in result:
             error_message = result.split("Error:")[1]
         else:
-            error_message ="Unknown error occurred"        
+            error_message ="Unknown error occurred"
+        logger.log(logging.INFO, f"Error occurred: {error_message}")           
         while retry < max_retry:
             # 使用 error_message，并在无错误时提供默认消息
             messages.append({
@@ -420,6 +423,8 @@ class ExecuteAgent(Agent):
                 "content": phase_prompt.format(error_message=error_message)
             })
             print(f"Retry {retry + 1}/{max_retry} for phase")
+            logger.log(logging.INFO, f"Retry {retry + 1}/{max_retry} for phase")
+            logger.log(logging.INFO, f"Retrying messages: {str(messages)}")
             # print(f"Retrying messages: {messages}")
             code = self.model_backend.run(messages=messages).choices[0].message.content.strip()
             try:
@@ -427,6 +432,7 @@ class ExecuteAgent(Agent):
             except:
                 print(f"content does not contain a valid Python code block. full content: {code}")
             print(f"Generated code: {code}")
+            logger.log(logging.INFO, f"Generated code: {code}")
             phase_env['Codes'] = code
             retry += 1
             result = self.execute_code(code, lock)
@@ -488,6 +494,7 @@ class CorrectionAgent(Agent):
             self.model_backend = ModelFactory.create(self.model_name, self.model_config.__dict__)
 
         need_correction = True
+        logger = phase_env['logger']
         max_retry = phase_env['max_retry'] 
         retry = -1
         while need_correction and retry < max_retry:
@@ -497,7 +504,9 @@ class CorrectionAgent(Agent):
                                                             assistant_role=phase_env['assistant_role'])
             messages.append({"role": "user", "content": phase_prompt})
             print(f"Retry {retry + 1}/{max_retry} for phase")
+            logger.log(logging.INFO, f"Retry {retry + 1}/{max_retry} for phase")
             # print(f"Retrying messages: {messages}")
+            logger.log(logging.INFO, f"Retrying messages: {str(messages)}")
             content = self.model_backend.run(messages=messages,response_format={"type": "json_object"}).choices[0].message.content.strip()
             try:
                 if content.startswith("```json\n"):
@@ -509,6 +518,7 @@ class CorrectionAgent(Agent):
                 print(f"Warning: Content does not contain a valid format. Full content: {content}")
                 # 返回完整的内容或继续处理，允许下一个任务继续执行
                 return content, phase_env  
+            logger.log(logging.INFO, f"Generated response: {json_response}")
             need_correction = json_response['need_adjustment']
             phase_env['Output'] = json_response['output']
             messages.pop()

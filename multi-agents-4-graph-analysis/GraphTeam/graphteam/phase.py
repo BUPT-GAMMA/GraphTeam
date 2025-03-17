@@ -106,7 +106,9 @@ class Phase(ABC):
         """
         self.update_phase_env(chat_env, phase_item)
         messages = self.generate_messages()
+        chat_env.env_dict["logger"].log(logging.INFO, f"input: {str(messages)}")
         self.conclusion, self.phase_env = self.chatting(messages, phase_env=self.phase_env)
+        chat_env.env_dict["logger"].log(logging.INFO, f"output: {str(self.conclusion)}")
         chat_env = self.update_chat_env(chat_env)
         return chat_env
 
@@ -271,7 +273,8 @@ class Execution(Phase):
                                "model": phase_item['model']})
         self.phase_env.update({"Messages": chat_env.env_dict['Messages'],
                                "Codes": chat_env.env_dict['Codes'],
-                               "lock": chat_env.env_dict['lock']})
+                               "lock": chat_env.env_dict['lock'],
+                               "logger": chat_env.env_dict['logger']})
 
     def update_chat_env(self, chat_env) -> ChatEnv:
         chat_env.env_dict['Messages'] = self.phase_env['Messages']
@@ -328,7 +331,8 @@ class Correction(Phase):
         self.phase_env.update({"model": phase_item['model'],
                                "max_retry": phase_item['max_retry'],
                                "phase_prompt": self.phase_prompt,
-                               "assistant_role": self.assistant_role_name})
+                               "assistant_role": self.assistant_role_name,
+                               "logger": chat_env.env_dict['logger']})
         self.phase_env.update({"Output": chat_env.env_dict['Output'],
                                "Output_Format": chat_env.env_dict['Output_Format']})
 
