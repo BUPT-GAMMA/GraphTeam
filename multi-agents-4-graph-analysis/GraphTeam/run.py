@@ -345,9 +345,9 @@ def main(args):
     memory_data = load_memory_data("GraphTeam/memory/memory_info.json")
     
     #log dir
-    folder_name = model + time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
     benchmark_name = Path(args.input).stem
-    log_dir = args.log_dir if args.log_dir else f"logs/{folder_name}/{benchmark_name}"
+    folder_name = benchmark_name + '_' + time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime())
+    log_dir = args.log_dir if args.log_dir else f"logs/{model}/{folder_name}"
 
     # Define file paths
     file_path = args.input
@@ -467,7 +467,7 @@ if __name__ == "__main__":
         '--log_dir',
         type=str,
         default=None,
-        help="Specify whether to log the results (default: logs/model_timestamp/your_benchmark_name/category)"
+        help="Specify whether to log the results (default: logs/model/benchmark_timestamp/category)"
     )
 
     args = parser.parse_args()
