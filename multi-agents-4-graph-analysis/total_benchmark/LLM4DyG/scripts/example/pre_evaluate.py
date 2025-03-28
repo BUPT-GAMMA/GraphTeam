@@ -3,18 +3,25 @@ import os
 import json
 import pandas as pd
 import numpy as np
-data = pd.read_json('G:/multi-agents-4-graph-analysis/total_benchmark/LLM4DyG/benchmark/LLM4DYG_5_5_0.3.json')
+data = pd.read_json('total_benchmark/LLM4DyG/benchmark/deepseek_5_5_0.3.json')
 
 model = 'gpt-4o-mini'
 for i in range(len(data)):
-    folder_path = 'G:/multi-agents-4-graph-analysis/total_benchmark/' + data.iloc[i]['file_path']
+    folder_path = 'total_benchmark/' + data.iloc[i]['file_path']
     answer = data.iloc[i]['result']
-    print(answer)
+    
+    if answer == None:
+        continue
 
     if type(answer) is not str:
         answer = str(answer)
+    #前两个字符为[[，最后两个字符为]]，
+    if answer.strip().startswith('[[') and answer.strip().endswith(']]'):
+        answer = answer.strip().replace('[', '(').replace(']', ')')
+        answer = '[' + answer[1:-1] + ']'
     if answer.lower().find('answer:') == -1 and answer.lower().find('answer :') == -1:
         answer = "Answer: " + answer
+        
 
     answer_path = os.path.join(folder_path, f"answer_{model}.json")
     with open(answer_path, 'w') as f:
